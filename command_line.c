@@ -1,9 +1,13 @@
+
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "command_line.h"
 
 
 int main(void){
+  object_type obj_type;
+  object_class input_obj;
   
   Object_types[0] = "[1] - .c file";
   Object_types[1] = "[2] - .h file";
@@ -36,11 +40,23 @@ int main(void){
     printf("Choice out of bounds\n");
   }
   else if((0<(choice[0]-'0')) && ((choice[0]-'0')<=size_Object_types)){
-    printf("You entered %s\n",choice);
+    char type[30];
+    printf("Enter name: ");
+    fgets(input_obj.obj_name,30, stdin);
+    printf("Enter type: ");
+    fgets(type, 5,stdin);
+    input_obj.obj_type = atoi(type); 
   }
   else{
     printf("Choice out of bounds\n");
   }
 
+  fp = fopen(filename,"w");
+  fprintf(fp,"\nName is: %s",input_obj.obj_name);
+  fprintf(fp,"\ntype is: %d",input_obj.obj_type);
+  fclose(fp);
+
+  
+  
   return 0;
 }
