@@ -8,6 +8,9 @@
 int main(void){
   object_type obj_type;
   object_class input_obj;
+  char test[30];
+  char name[30];
+
   
   Object_types[0] = "[1] - .c file";
   Object_types[1] = "[2] - .h file";
@@ -34,18 +37,19 @@ int main(void){
   
 
   printf("\n\nChoose a menu option: ");   //ask for menu input
-  scanf("%s", choice);
+  scanf("%s",choice);
+  int c;
+  while((c=getchar()) !=EOF && c != '\n');
   
   if((strlen(choice))>1){                 //check input bounds
     printf("Choice out of bounds\n");
   }
   else if((0<(choice[0]-'0')) && ((choice[0]-'0')<=size_Object_types)){
-    char type[30];
     printf("Enter name: ");
-    fgets(input_obj.obj_name,30, stdin);
-    printf("Enter type: ");
-    fgets(type, 5,stdin);
-    input_obj.obj_type = atoi(type); 
+    fgets(input_obj.obj_name,30,stdin);
+     printf("Enter type: ");
+    fgets(test, 5,stdin);
+    input_obj.obj_type = atoi(test); 
   }
   else{
     printf("Choice out of bounds\n");

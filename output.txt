@@ -1,4 +1,4 @@
 
-Name is: 
+Name is: brad
 
-type is: 3
+type is: 5
